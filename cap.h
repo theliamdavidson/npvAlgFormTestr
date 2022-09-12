@@ -33,19 +33,22 @@ class Cap{
                                 "Left Interm Ulnar", "Left Interm Radial", "Left EI",
                                 "Lower Aorta", "Upper Aorta", "Right EI", "Intermim Aorta",
                                 "Intermed LEI", "Intermed REI", "Lower LEI", "Lower REI"};
-        string newFilename;
+        
         int temp;
         string int2str; 
     public:
         vector<string> created_file; 
-        void populate_file(string newFilename){
+        void populate_file(){
+            string pLName = lname[rand() % 10];
+            string pFNAME = fname[rand() % 10];
+            string newFilename = pLName + pFNAME + ".csv";
             created_file.push_back(newFilename);
             fstream fout;        
             fout.open(newFilename, ios::out | ios::app);
             // Anterograde pulsatility index, Anterograde volume flow, Retrograde volume flow, Retrograde pulsatility index
             temp = rand() % 101 + 100;
             int2str = to_string(temp);
-            fout << lname[rand() % 10] << ',' << fname[rand() % 10] << ',' << int2str << "\n";
+            fout << pLName << ',' << pFNAME << ',' << int2str << "\n";
             for(int i = 0; i < 67; i++){
                 temp = rand() % 10000000 + 10000000;
                 int2str = to_string(temp);

@@ -1,6 +1,6 @@
 #include "csv_read.h"
 #include "csv_write.h"
-
+#include "cap.h"
 using namespace std;
 
 int cont = 1;
@@ -10,40 +10,47 @@ char usrRequest(){
     cin >> temp;
     return temp;
 }
-int MainMenu(char option){
-    switch(option){
-        case('r'):
-            //read
-            cout << 'r' << endl;
-            return(0);   
-        case('w'):
-            // write, will propably block funtionality 
-            // until patient is confirmed existing
-            cout << 'w'<< endl;
-            return(1);
-        case('c'):
-            //CreateAPatient
-            cout << 'c'<< endl;
-            return(2);
-        case('x'):
-            char chkr;
-            cout << "are you sure? ";
-            cin >> chkr;
-            if(chkr == 'y'){
-                cout << "exiting";
-                cont = 0;
-                return 100;
-            }
-        default:
-            cout << "Option does not exist, please try again"<< endl;
-            return(-1);
-        
-    }
-}
+
 int main(){
-    
+    Write w;
+    Read r;
+    Cap c; // debug / testing purposes. will create fake files & patients for me
+    string U_A;
     while(cont){
-        int usrChoice = MainMenu(usrRequest());
+        char option = usrRequest();
+        switch(option){
+            case('r'):
+                //read
+                cout << 'r' << endl;
+                r.File_O("RodriguezRay.csv");
+                U_A = r.find_data("Upper Aorta");
+                cout << U_A << endl;
+                break;   
+            case('w'):
+                // write, will propably block funtionality 
+                // until patient is confirmed existing
+                cout << 'w'<< endl;
+                break;
+            case('c'):
+                //CreateAPatient
+                cout << 'c'<< endl;
+                c.populate_file();
+                break;
+            case('x'):
+                char chkr;
+                //cout << "are you sure? ";
+                //cin >> chkr;
+                //if(chkr == 'y'){
+                //    cout << "exiting";
+                //    cont = 0;                   
+                //}
+                cont = 0;
+                break;
+            default:
+                cout << "Option does not exist, please try again"<< endl;
+                break;
+            
+        }
     }
    
  

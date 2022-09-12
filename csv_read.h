@@ -2,6 +2,7 @@
 #include <fstream>
 #include <vector>
 #include <sstream>
+#include <algorithm>
 
 using namespace std;
 
@@ -13,12 +14,24 @@ class Read{
         vector<vector<string>> content;
         vector<string> row;
         void print_func(){
+            
+        }
+        string find_data(string vessel){
+            string temp;
+            int rqlen = vessel.length();
             for(int i=0;i<content.size();i++){
-                for(int j=0;j<content[i].size();j++){
-                    cout<<content[i][j]<<" ";
+                string tempstr;
+                for(int j=0;j<(content[i].size() && rqlen );j++){
+                    tempstr.append(content[i][j]);
                 }
-                cout<<"\n";
+                if(tempstr == vessel){
+                    for(int j=0;j<content[i].size();j++){
+                        temp.append(content[i][j] + ",");
+                    }
+                    return temp;
+                }
             }
+            return "not found";
         }
         void File_O(string filename){
             fstream file (filename, ios::in);
@@ -37,7 +50,6 @@ class Read{
             else{
                 cout<<"Could not open the file\n";
             }
-            print_func();
         }        
 };
 #endif
