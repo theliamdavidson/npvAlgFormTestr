@@ -3,27 +3,35 @@
 
 using namespace std;
 
-int main(){
-    char menuOption;
+char usrRequest(){
+    char temp;
     cout << "enter menu options: ";
-    cin >> menuOption;
-    switch(menuOption){
+    cin >> temp;
+    return temp;
+}
+int MainMenu(char option){
+    switch(option){
         case('r'):
             //read
             cout << 'r';
-            break;
+            return(0);
         case('c'):
             //CreateAPatient
             cout << 'c';
-            break;
+            return(1);
         case('w'):
             // write, will propably block funtionality 
             // until patient is confirmed existing
             cout << 'w';
-            break;
+            return(2);
         default:
             cout << "Option does not exist, please try again";
-            break;
+            return(-1);
         
     }
+}
+int main(){
+    int usrChoice = MainMenu(usrRequest());
+   
+ 
 }
