@@ -26,7 +26,7 @@ class Read{
                 }
                 if(tempstr == vessel){
                     for(int j=0;j<content[i].size();j++){
-                        temp.append(content[i][j] + ",");
+                        temp.append(content[i][j] + " ");
                     }
                     return temp;
                 }

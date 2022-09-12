@@ -16,13 +16,15 @@ int main(){
     Read r;
     Cap c; // debug / testing purposes. will create fake files & patients for me
     string U_A;
+    string username = "RodriguezRay.csv";
     while(cont){
         char option = usrRequest();
         switch(option){
             case('r'):
                 //read
-                cout << 'r' << endl;
-                r.File_O("RodriguezRay.csv");
+                cout << "enter in the name of the patient (lastname first) " << endl;
+                //cin >> username; //replace hardcode with username after testing
+                r.File_O(username);
                 U_A = r.find_data("Upper Aorta");
                 cout << U_A << endl;
                 break;   
@@ -37,13 +39,15 @@ int main(){
                 c.populate_file();
                 break;
             case('x'):
+                /*
                 char chkr;
-                //cout << "are you sure? ";
-                //cin >> chkr;
-                //if(chkr == 'y'){
-                //    cout << "exiting";
-                //    cont = 0;                   
-                //}
+                cout << "are you sure? ";
+                cin >> chkr;
+                if(chkr == 'y'){
+                    cout << "exiting";
+                    cont = 0;                   
+                }
+                */
                 cont = 0;
                 break;
             default:
