@@ -1,21 +1,27 @@
 #include "csv_read.h"
 #include "csv_write.h"
 #include "cap.h"
+#include "tests.h"
 using namespace std;
 
 int cont = 1;
+Write w;
+Read r;
+Tests t;
+Cap c; // debug / testing purposes. will create fake files & patients for me
 char usrRequest(){
     char temp;
     cout << "enter menu options: ";
     cin >> temp;
     return temp;
 }
-
-int main(){
-    Write w;
-    Read r;
-    Cap c; // debug / testing purposes. will create fake files & patients for me
+void vessel_caller(){
     string U_A;
+    U_A = r.find_data("Upper Aorta");
+    cout << U_A << endl;
+}
+
+int main(){  
     string username = "RodriguezRay.csv";
     while(cont){
         char option = usrRequest();
@@ -24,9 +30,8 @@ int main(){
                 //read
                 cout << "enter in the name of the patient (lastname first) " << endl;
                 //cin >> username; //replace hardcode with username after testing
-                r.File_O(username);
-                U_A = r.find_data("Upper Aorta");
-                cout << U_A << endl;
+                r.File_O(username);     
+                vessel_caller();
                 break;   
             case('w'):
                 // write, will propably block funtionality 
@@ -37,6 +42,9 @@ int main(){
                 //CreateAPatient
                 cout << 'c'<< endl;
                 c.populate_file();
+                break;
+            case('t'):
+                cout << 'c' <<endl;
                 break;
             case('x'):
                 /*

@@ -14,25 +14,25 @@ class Cap{
     private:
         vector<string> fname = {"Liam", "Nicole", "Ryan", "Jack", "Robert", "Barbra",  "Alfred", "Ray", "Jane"};
         vector<string> lname = {"Davidson", "Rodriguez", "Smith", "Doe", "Brown", "Johnson", "Gaimon", "Nieves", "Wu"};
-        vector<string> create = {"Right subclavian", "Right Brachial", "Right Proximal Radial",
-                                "Right Proximal Ulnar", "Right Distal Radial","Right Distal Ulnar",
-                                "Right 1st", "Right 2nd", "Right 3rd", "Right 4th", "Left subclavian",
-                                "Left Brachial", "Left Proximal Radial", "Left Proximal Ulnar",
-                                "Left Distal radial" , "Left Distal Ulnar", "Left 1st",
-                                "Left 2nd", "Left 3rd", "Left 4th", "Right u Sciatic",
-                                "Right M Sciatic", "Right L sciatic", "Right Proximal Pero",
-                                "Right Inter Pero", "Right Low Pero", "Right Proximal tib",
-                                "Right inter tib", "Right low tib", "Right Calc", "Right Med arch",
-                                "Right Lat arch", "Right MT cutaneous", "Right 1ST", "Right 2ND",
-                                "Right 3RD", "Right 4th", "Left u Sciatic", "Left M Sciatic",
-                                "Left L sciatic", "Left Proximal Pero", "Left Inter Pero",
-                                "Left Low Pero", "Left Proximal tib", "Left inter tib",
-                                "Left low tib", "Left Calc", "Left Med arch", "Left Lat arch",
-                                "Left MT cutaneous", "Left 1ST", "Left 2ND", "Left 3RD",
-                                "Left 4th", "Right Interm ulnar","Right Interm Radial",
-                                "Left Interm Ulnar", "Left Interm Radial", "Left EI",
-                                "Lower Aorta", "Upper Aorta", "Right EI", "Intermim Aorta",
-                                "Intermed LEI", "Intermed REI", "Lower LEI", "Lower REI"};
+        vector<string> create = {"Right_subclavian","Right_Brachial", "Right_Proximal_Radial",
+                                "Right_Proximal_Ulnar","Right_Distal_Radial","Right_Distal_Ulnar",
+                                "Right_1st","Right_2nd","Right_3rd","Right_4th","Left_subclavian",
+                                "Left_Brachial","Left_Proximal_Radial","Left_Proximal_Ulnar",
+                                "Left_Distal_radial", "Left_Distal_Ulnar","Left_1st",
+                                "Left_2nd","Left_3rd","Left_4th","Right_u_Sciatic",
+                                "Right_M_Sciatic","Right_L_sciatic","Right_Proximal_Pero",
+                                "Right_Inter_Pero", "Right_Low_Pero","Right_Proximal_tib",
+                                "Right_inter_tib", "Right_low_tib", "Right_Calc", "Right_Med_arch",
+                                "Right_Lat_arch", "Right_MT_cutaneous", "Right_1ST", "Right_2ND",
+                                "Right_3RD", "Right_4th", "Left_u_Sciatic", "Left_M_Sciatic",
+                                "Left_L_sciatic", "Left_Proximal_Pero", "Left_Inter_Pero",
+                                "Left_Low_Pero", "Left_Proximal_tib", "Left_inter_tib",
+                                "Left_low_tib", "Left_Calc", "Left_Med_arch", "Left_Lat_arch",
+                                "Left_MT_cutaneous", "Left_1ST", "Left_2ND", "Left_3RD",
+                                "Left_4th", "Right_Interm_ulnar","Right_Interm_Radial",
+                                "Left_Interm_Ulnar", "Left_Interm_Radial", "Left_EI",
+                                "Lower_Aorta", "Upper_Aorta", "Right_EI", "Intermim_Aorta",
+                                "Intermed_LEI", "Intermed_REI", "Lower_LEI", "Lower_REI"};
         
         int temp;
         string int2str; 
