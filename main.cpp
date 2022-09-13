@@ -19,6 +19,8 @@ void vessel_caller(){
     string U_A;
     U_A = r.find_data("Upper Aorta");
     cout << U_A << endl;
+    t.converter(U_A);
+    t.num_crunch();
 }
 
 int main(){  
@@ -44,7 +46,8 @@ int main(){
                 c.populate_file();
                 break;
             case('t'):
-                cout << 'c' <<endl;
+                cout << 't' <<endl;
+                vessel_caller();
                 break;
             case('x'):
                 /*
