@@ -22,14 +22,15 @@ void vessel_caller(string username){
     cout << U_A << endl;
     t.converter(U_A);                   // convert the string to floats
     t.num_crunch();
-    w.populate_file(username, )
+    w.populate_file(username, "Upper_Aorta", t.varlist, t.resultlist);
 }
 
 int main(){  
     string username = "NievesRay";
     cout << "enter in the name of the patient (lastname first) " << endl;
     //cin >> username; //replace hardcode with username after testing
-    r.File_O(username.append(".csv"));   
+    string temp = username;
+    r.File_O(temp.append(".csv"));   
     while(cont){
         char option = usrRequest();
         switch(option){
