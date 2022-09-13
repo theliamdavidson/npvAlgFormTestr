@@ -14,12 +14,16 @@ class Tests{
     float High_PI_Deficit, Low_PI_Deficit, High_VF_Deficit, Low_VF_Deficit;
     float true_value, deficit_total;
     public:
+    //as this is just an experiment, lazy code is below
+    //will split these up into individual modules 4 each test
         void genTest(string vessel_data){
             stringstream s(vessel_data);
             cout << "decoding U Aorta data" << endl;
-            string word;
-            while (s >> word){
-
+            vector<string> test;
+            while (s.good()){
+                string word;
+                getline(s, word, ',');
+                test.push_back(word);
             }
         }
 };

@@ -8,7 +8,7 @@ int cont = 1;
 Write w;
 Read r;
 Tests t;
-Cap c; // debug / testing purposes. will create fake files & patients for me
+Cap c; // debug / testing purposes. will create stand-in files for me
 char usrRequest(){
     char temp;
     cout << "enter menu options: ";

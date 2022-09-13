@@ -39,8 +39,8 @@ class Cap{
     public:
         vector<string> created_file; 
         void populate_file(){
-            string pLName = lname[rand() % 10];
-            string pFNAME = fname[rand() % 10];
+            string pLName = lname[(rand() % 10)];
+            string pFNAME = fname[(rand() % 10)];
             string newFilename = pLName + pFNAME + ".csv";
             created_file.push_back(newFilename);
             fstream fout;        
