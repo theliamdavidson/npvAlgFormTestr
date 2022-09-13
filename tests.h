@@ -57,7 +57,7 @@ class Tests{
             AR_ratio_1 = sqrt(PI_1 * VF_1);
             AR_ratio_2 = VF_1 * .25;
             AR_ratio_3 = sqrt(PI_2 * AR_ratio_2);
-            AR_ratio_4 = AR_ratio_3 / AR_ratio_2;
+            AR_ratio_4 = AR_ratio_3 / AR_ratio_1;
             Upper_ratio = (1 - AR_ratio_4) + 1; 
 
             resultlist.push_back(round(AR_ratio_1*100) / 100);            
@@ -67,30 +67,30 @@ class Tests{
             resultlist.push_back(round(Upper_ratio*100) / 100);            
             
             // inquire about the order of operations of the upper ratio/sqrt op
-            High_PI = sqrt(PI_1 * Upper_ratio/sqrt(PI_1*VF_1*AR_ratio_3*Upper_ratio));
+            High_PI = sqrt((PI_1 * Upper_ratio)/sqrt(PI_2*VF_1*AR_ratio_3*Upper_ratio));
             Low_PI = sqrt(PI_2 * AR_ratio_4/sqrt(PI_1*VF_1*AR_ratio_3*AR_ratio_4));
-            High_VF = sqrt(VF_1 * Upper_ratio/sqrt(PI_2*PI_1*AR_ratio_3*AR_ratio_4));
+            High_VF = sqrt(VF_1 * Upper_ratio/sqrt(PI_2*PI_1*AR_ratio_3*Upper_ratio));
             Low_VF = sqrt(AR_ratio_3 * AR_ratio_4/sqrt(PI_2*PI_1*VF_1*AR_ratio_4));
             
             resultlist.push_back(round(High_PI*100) / 100);            
-            resultlist.push_back(round(Low_PI*100) / 100);            
+            resultlist.push_back(round(Low_PI*100) / 100);  
             resultlist.push_back(round(High_VF*100) / 100);
             resultlist.push_back(round(Low_VF*100) / 100);            
 
-            L_ratio_High_PI = abs(9-PI_1);
-            L_ratio_Low_PI = abs(8-PI_2);
-            L_ratio_High_VF = abs(8-VF_1);
-            L_ratio_Low_VF = abs(AR_ratio_3-VF_2);
+            L_ratio_High_PI = (8-abs(9-PI_1))*High_PI;
+            L_ratio_Low_PI = (8-abs(8-PI_2))*Low_PI;
+            L_ratio_High_VF = (8-abs(8-VF_1))*High_VF;
+            L_ratio_Low_VF = (3-abs(AR_ratio_3-VF_2))*Low_VF;
 
             resultlist.push_back(round(L_ratio_High_PI*100) / 100);            
             resultlist.push_back(round(L_ratio_Low_PI*100) / 100);            
             resultlist.push_back(round(L_ratio_High_VF*100) / 100);            
             resultlist.push_back(round(L_ratio_Low_VF*100) / 100);            
 
-            High_PI_Deficit = L_ratio_High_PI * 100;
-            Low_PI_Deficit = L_ratio_Low_PI * 100;
-            High_VF_Deficit = L_ratio_High_VF * 100;
-            Low_VF_Deficit = L_ratio_Low_VF * 100;
+            High_PI_Deficit =  (100*(8-L_ratio_High_PI))/(L_ratio_High_PI*L_ratio_High_PI);
+            Low_PI_Deficit = (100*(3.5-L_ratio_Low_PI))/(L_ratio_Low_PI * L_ratio_Low_PI);
+            High_VF_Deficit = (100*(5 - L_ratio_High_VF))/(L_ratio_High_VF * L_ratio_High_VF);
+            Low_VF_Deficit = (100*(1 - L_ratio_Low_VF))/(L_ratio_Low_VF * L_ratio_Low_VF);
             deficit_total = High_PI_Deficit + Low_PI_Deficit + High_VF_Deficit + Low_VF_Deficit;
 
             resultlist.push_back(round(High_PI_Deficit*100) / 100);            
@@ -137,7 +137,7 @@ class Tests{
             resultlist.push_back(round(bvg_low_vf*100) / 100);            
 
             bvg_total = bvg_hi_pi + bvg_low_pi + bvg_hi_vf + bvg_low_vf;
-            bvg_percent_total = (400-bvg_total) / 400;
+            bvg_percent_total = bvg_total / 400;
 
             resultlist.push_back(round(bvg_total*100) / 100);            
             resultlist.push_back(round(bvg_percent_total*100) / 100);            
@@ -166,11 +166,6 @@ class Tests{
 
             resultlist.push_back(round(swelling_val*100) / 100);            
             resultlist.push_back(round(antero_swelling_val*100) / 100);            
-
-            cout << PI_1 << ' '<< VF_1 << ' ' << PI_2 << ' '<< VF_2 << endl;
-            cout << bvg_percent_total << endl;  //this one broke
-            cout << round(nvi_post_carotid) << endl;
-            
         }
 };
 #endif
