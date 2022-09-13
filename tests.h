@@ -36,7 +36,7 @@ class Tests{
     //will split these up into individual modules 4 each test
         void converter(string vessel_data){
             stringstream s(vessel_data);
-            cout << "decoding U Aorta data" << endl;
+            cout << "decoding " << vessel_data << " data" << endl;
             vector<string> test;
             string word;
             while (s >> word){
@@ -47,8 +47,7 @@ class Tests{
             VF_1 = stof(test[2])/25;// this in mind
             VF_2 = stof(test[4])/25;
             vessel_name = test[0];
-        }
-        void num_crunch(){
+        
             resultlist.push_back(round(PI_1*100) / 100);     
             resultlist.push_back(round(PI_2*100) / 100);            
             resultlist.push_back(round(VF_1*100) / 100);           

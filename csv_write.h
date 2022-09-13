@@ -13,16 +13,19 @@ class Write{
     // old code from the csv project
     private:
         string newFilename;
-        int temp;
         string int2str; 
+        int countr = 0;
     public:
-        void populate_file(string temp, string vessel, vector<string> pat_file, vector<float> pat_num){
+        void populate_file(string pat_name, vector<string> vessel_list, vector<string> result_var_list, vector<float> pat_nums){
             fstream fout;
-            newFilename = temp + '_' + vessel;        
-            fout.open(newFilename.append(".csv"), ios::out | ios::app); //funny fix to other problem, REMOVE ASAP
-            fout << newFilename << ", " << vessel << "\n";
-            for(int i = 0; (i < pat_file.size()) &&(i < pat_num.size()); i++){
-                fout << pat_file[i] << ", " <<pat_num[i] << "\n";
+            newFilename = pat_name + "_results.csv";        
+            fout.open(newFilename, ios::out | ios::app); 
+            fout << newFilename << "\n";
+            for(int i = 0; i < 12; i++){
+                if((i%37) == 0){
+                    countr++;
+                }
+                fout << vessel_list[countr] << ", " << result_var_list[i] << ", " <<pat_nums[i] << "\n";
             }
             cout << "creation of " << newFilename << " was successful" << endl;
         }

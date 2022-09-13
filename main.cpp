@@ -16,14 +16,17 @@ char usrRequest(){
     return temp;
 }
 void vessel_caller(string username){
-    string U_A;
-    char usr_in;
-    U_A = r.find_data("Upper_Aorta");   // find a specific vessel, will change later
-    cout << U_A << endl;
-    t.converter(U_A);                   // convert the string to floats
-    t.num_crunch();
-    w.populate_file(username, "Upper_Aorta", t.varlist, t.resultlist);
-}
+    vector<float> vessel_results;
+    int count;
+    for(count = 0; count < c.create.size(); count++){
+        t.converter(r.find_data(c.create[count]));
+        for(int i = 0; i<t.resultlist.size(); i++)
+            vessel_results.push_back(t.resultlist[i]);
+    }
+    cout << vessel_results.size();
+    //          patient name -vessel list         -patient numbers
+    w.populate_file(username, c.create, t.varlist, vessel_results);
+}   //                                  tests list
 
 int main(){  
     string username = "NievesRay";

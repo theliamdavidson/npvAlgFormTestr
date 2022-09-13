@@ -14,7 +14,11 @@ class Cap{
     private:
         vector<string> fname = {"Liam", "Nicole", "Ryan", "Jack", "Robert", "Barbra",  "Alfred", "Ray", "Jane"};
         vector<string> lname = {"Davidson", "Rodriguez", "Smith", "Doe", "Brown", "Johnson", "Gaimon", "Nieves", "Wu"};
-        vector<string> create = {"Right_subclavian","Right_Brachial", "Right_Proximal_Radial",
+        
+        int temp;
+        string int2str; 
+    public:
+    vector<string> create = {"Right_subclavian","Right_Brachial", "Right_Proximal_Radial",
                                 "Right_Proximal_Ulnar","Right_Distal_Radial","Right_Distal_Ulnar",
                                 "Right_1st","Right_2nd","Right_3rd","Right_4th","Left_subclavian",
                                 "Left_Brachial","Left_Proximal_Radial","Left_Proximal_Ulnar",
@@ -34,9 +38,6 @@ class Cap{
                                 "Lower_Aorta", "Upper_Aorta", "Right_EI", "Intermim_Aorta",
                                 "Intermed_LEI", "Intermed_REI", "Lower_LEI", "Lower_REI"};
         
-        int temp;
-        string int2str; 
-    public:
         vector<string> created_file; 
         void populate_file(){
             string pLName = lname[(rand() % 10)];
