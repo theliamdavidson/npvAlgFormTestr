@@ -15,25 +15,29 @@ char usrRequest(){
     cin >> temp;
     return temp;
 }
-void vessel_caller(){
+void vessel_caller(string username){
     string U_A;
-    U_A = r.find_data("Upper Aorta");
+    char usr_in;
+    U_A = r.find_data("Upper_Aorta");   // find a specific vessel, will change later
     cout << U_A << endl;
-    t.converter(U_A);
+    t.converter(U_A);                   // convert the string to floats
     t.num_crunch();
+    w.populate_file(username, )
 }
 
 int main(){  
-    string username = "RodriguezRay.csv";
+    string username = "NievesRay";
+    cout << "enter in the name of the patient (lastname first) " << endl;
+    //cin >> username; //replace hardcode with username after testing
+    r.File_O(username.append(".csv"));   
     while(cont){
         char option = usrRequest();
         switch(option){
             case('r'):
                 //read
                 cout << "enter in the name of the patient (lastname first) " << endl;
-                //cin >> username; //replace hardcode with username after testing
-                r.File_O(username);     
-                vessel_caller();
+                cin >> username; //replace hardcode with username after testing
+                r.File_O(username.append(".csv"));     
                 break;   
             case('w'):
                 // write, will propably block funtionality 
@@ -47,7 +51,7 @@ int main(){
                 break;
             case('t'):
                 cout << 't' <<endl;
-                vessel_caller();
+                vessel_caller(username);
                 break;
             case('x'):
                 /*
