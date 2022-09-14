@@ -11,21 +11,59 @@ using namespace std;
 class Write{
     private:
         string newFilename;
-        string int2str; 
+        vector<string> tosend;
         int countr = 0;
-    public:
-        void populate_file(string pat_name, vector<string> vessel_list, vector<string> result_var_list, vector<float> pat_nums){
+        void print_file(vector<string> to_print, string file_name){
             fstream fout;
-            newFilename = pat_name + "_results.csv";        
-            fout.open(newFilename, ios::out | ios::app); 
+            fout.open(file_name, ios::out | ios::app);
             fout << newFilename << "\n";
-            // loops the vessel list so that it places the exact vessel in the first column, but iterates through the result and numbs
-            for(int i = 0; i < vessel_list.size(); i++){
-                for(int j = 0; j < result_var_list.size(); j++){
-                fout << vessel_list[i] << ',' << result_var_list[j] << ',' << to_string(pat_nums[j]) << "\n";
-                }
+            for(int i = 0; i < to_print.size(); i++){
+                fout << to_print[i] << "\n";
             }
             cout << "creation of " << newFilename << " was successful" << endl;
+        }
+    public:
+        void populate_file(string pat_name, vector<string> vessel_list, vector<string> result_var_list, vector<float> pat_nums, char testype){ 
+            switch(testype){
+                case('f'):{
+                    newFilename = pat_name + "_results.csv";        
+                    // loops the vessel list so that it places the exact vessel in the first column, but iterates through the result and numbs
+                    for(int i = 0; i < vessel_list.size(); i++){
+                        for(int j = 0; j < result_var_list.size(); j++){
+                            tosend.push_back(vessel_list[i] + ',' + result_var_list[j] + ',' + to_string(pat_nums[j]));
+                        }
+                    }
+                    break;
+                }
+                case('b'):{
+                    newFilename = pat_name + "_BVG_results.csv";  
+                    int vessel_count = 0;      
+                    // this format only prints the nvi_post_bvg values
+                    // so the vessel count is only delayed by 2
+                    for(int j = 0; j < pat_nums.size(); j++){
+                        if(((j+1) % 32) == 0){
+                            tosend.push_back(vessel_list[vessel_count] + ',' + result_var_list[31] + ',' + to_string(pat_nums[j]));
+                            j++;
+                            vessel_count++;
+                            tosend.push_back(vessel_list[vessel_count] + ',' + result_var_list[32] + ',' + to_string(pat_nums[j]));
+                            j++;
+                            vessel_count++;
+                        }
+                        if(vessel_count == vessel_list.size()){
+                            break;
+                        }
+                        
+                    }
+                    
+                    break;
+                }
+                default:{
+                    newFilename = "critical_error.csv";
+                    tosend.push_back("unknown failure in file creation");
+                    cout << "-1";
+                }
+            }
+            print_file(tosend, newFilename);
         }
     
 };

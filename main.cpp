@@ -15,7 +15,7 @@ char usrRequest(){
     cin >> temp;
     return temp;
 }
-void vessel_caller(string username){
+void vessel_caller(string username, char testype){
     vector<float> vessel_results;
     vector<float> temp_vec;
         
@@ -24,9 +24,9 @@ void vessel_caller(string username){
         for(int i = 0; i<temp_vec.size(); i++)
             vessel_results.push_back(temp_vec[i]);
     }    
-    //          patient name -vessel list         -patient numbers
-    w.populate_file(username, c.create, t.varlist, vessel_results);
-}   //                                  tests list
+    //          patient name           -tests list                -type of test
+    w.populate_file(username, c.create, t.varlist, vessel_results, testype);
+}   //                       -vessel list         -patient numbers        
 
 int main(){  
     string username = "RodriguezRay";
@@ -54,19 +54,18 @@ int main(){
                 c.populate_file();
                 break;
             case('t'):
-                cout << 't' <<endl;
-                vessel_caller(username);
-                break;
-            case('x'):
-                /*
-                char chkr;
-                cout << "are you sure? ";
-                cin >> chkr;
-                if(chkr == 'y'){
-                    cout << "exiting";
-                    cont = 0;                   
+                char testype;
+                cout << "Full test? or BVG?: ";
+                cin >> testype;
+                if((testype == 'f') || (testype == 'b')){
+                    vessel_caller(username, testype);
+                    break;
                 }
-                */
+                else{
+                    cout << "not an option, try again" << endl;                   
+                }
+                break;   
+            case('x'):
                 cont = 0;
                 break;
             default:
