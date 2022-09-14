@@ -15,7 +15,6 @@ class Cap{
         vector<string> fname = {"Liam", "Nicole", "Ryan", "Jack", "Robert", "Barbra",  "Alfred", "Ray", "Jane"};
         vector<string> lname = {"Davidson", "Rodriguez", "Smith", "Doe", "Brown", "Johnson", "Gaimon", "Nieves", "Wu"};
         
-        int temp;
         string int2str; 
     public:
     vector<string> create = {"Right_subclavian","Right_Brachial", "Right_Proximal_Radial",
@@ -41,13 +40,9 @@ class Cap{
             fstream fout;        
             fout.open(newFilename, ios::out | ios::app);
             // Anterograde pulsatility index, Anterograde volume flow, Retrograde volume flow, Retrograde pulsatility index
-            temp = rand() % 101 + 100;
-            int2str = to_string(temp);
-            fout << pLName << ',' << pFNAME << ',' << int2str << "\n";
+            fout << pLName << ',' << pFNAME << ',' << to_string(rand() % 100 + 500) << "\n";
             for(int i = 0; i < create.size(); i++){
-                temp = rand() % 10000000 + 10000000;
-                int2str = to_string(temp);
-                fout << create[i] << ',' << int2str[0] << int2str[1] <<',' << int2str[2] << int2str[3] << ',' << int2str[4] << int2str[5] <<',' << int2str[6] << int2str[7] << "\n";
+                fout << create[i] << ',' << to_string(rand() % 10 + 90) <<',' << to_string(rand() % 10 + 90)  << ',' << to_string(rand() % 10 + 90)  <<',' << to_string(rand() % 10 + 90) << "\n";
             }
             cout << "creation of " << newFilename << " was successful" << endl;
         }
