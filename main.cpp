@@ -17,17 +17,13 @@ char usrRequest(){
 }
 void vessel_caller(string username){
     vector<float> vessel_results;
-    vector<float> temp;
+    vector<float> temp_vec;
         
-    for(int count = 0; count < c.create.size(); count++){ //count < 3; count++){//
-        //temp.clear();
-        temp = t.converter(r.find_data(c.create[count]));
-        for(int i = 0; i<temp.size(); i++)
-            vessel_results.push_back(temp[i]);
+    for(int count = 0; count < c.create.size(); count++){ 
+        temp_vec = t.converter(r.find_data(c.create[count]));
+        for(int i = 0; i<temp_vec.size(); i++)
+            vessel_results.push_back(temp_vec[i]);
     }    
-    cout << "c.create.size " << c.create.size() << endl;
-    cout << "vessel_results " << vessel_results.size() << endl;
-    cout << "both "<< c.create.size() + vessel_results.size() << endl;
     //          patient name -vessel list         -patient numbers
     w.populate_file(username, c.create, t.varlist, vessel_results);
 }   //                                  tests list
@@ -35,7 +31,7 @@ void vessel_caller(string username){
 int main(){  
     string username = "RodriguezRay";
     cout << "enter in the name of the patient (lastname first) " << endl;
-    //cin >> username; //replace hardcode with username after testing
+    cin >> username; //replace hardcode with username after testing
     string temp = username;
     r.File_O(temp.append(".csv"));   
     while(cont){

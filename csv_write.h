@@ -9,8 +9,6 @@ using namespace std;
 #ifndef CSV_WRITE_H
 #define CSV_WRITE_H
 class Write{
-    // rewrite imminent 
-    // old code from the csv project
     private:
         string newFilename;
         string int2str; 
@@ -21,7 +19,7 @@ class Write{
             newFilename = pat_name + "_results.csv";        
             fout.open(newFilename, ios::out | ios::app); 
             fout << newFilename << "\n";
-            // rethink
+            // loops the vessel list so that it places the exact vessel in the first column, but iterates through the result and numbs
             for(int i = 0; i < vessel_list.size(); i++){
                 for(int j = 0; j < result_var_list.size(); j++){
                 fout << vessel_list[i] << ',' << result_var_list[j] << ',' << to_string(pat_nums[j]) << "\n";

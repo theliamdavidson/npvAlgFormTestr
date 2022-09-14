@@ -39,7 +39,6 @@ class Cap{
             created_file.push_back(newFilename);
             fstream fout;        
             fout.open(newFilename, ios::out | ios::app);
-            // Anterograde pulsatility index, Anterograde volume flow, Retrograde volume flow, Retrograde pulsatility index
             fout << pLName << ',' << pFNAME << ',' << to_string(rand() % 100 + 500) << "\n";
             for(int i = 0; i < create.size(); i++){
                 fout << create[i] << ',' << to_string(rand() % 10 + 90) <<',' << to_string(rand() % 10 + 90)  << ',' << to_string(rand() % 10 + 90)  <<',' << to_string(rand() % 10 + 90) << "\n";

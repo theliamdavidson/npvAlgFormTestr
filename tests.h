@@ -15,7 +15,7 @@ class Tests{
     float L_ratio_High_PI, L_ratio_Low_PI, L_ratio_High_VF, L_ratio_Low_VF;
     float High_PI_Deficit, Low_PI_Deficit, High_VF_Deficit, Low_VF_Deficit;
     float deficit_total, carotid_1, carotid_percent;
-    float carotid = 304; // i assume he keeps this visible so he can change it
+    float carotid = 304; // i assume he keeps these hardcodes visible so he can change it
     float bvg_hi_pi, bvg_low_pi, bvg_hi_vf, bvg_low_vf, bvg_total, bvg_percent_total;
     float nvi_post_carotid, nvi_post_bvg1, nvi_post_bvg2, nvi_non, h_val_low_aor;
     float swelling_val, antero_swelling_val;
@@ -32,8 +32,6 @@ class Tests{
             "nvi_post_carotid", "nvi_post_bvg1", "nvi_post_bvg2", 
             "nvi_non", "h_val_low_aor", "swelling_val", "antero_swelling_val"}; 
     
-    //as this is just an experiment, lazy code is below
-    //will split these up into individual modules 4 each test
         vector<float> converter(string vessel_data){
             vector<float> resultlist;
             stringstream s(vessel_data);
@@ -42,13 +40,8 @@ class Tests{
             while (s >> word){
                 test.push_back(word);
             }
-            /*
-            for(int i = 0; i<test.size(); i++){
-                cout << test[i] << ' ';
-            }
-            */
-            PI_1 = stof(test[1])*2; // i dont think we require the originals
-            PI_2 = stof(test[3])*2; // anywhere, but it would be best to keep
+            PI_1 = stof(test[1])*2; // 
+            PI_2 = stof(test[3])*2; // keep
             VF_1 = stof(test[2])/25;// this in mind
             VF_2 = stof(test[4])/25;
             vessel_name = test[0];
@@ -78,7 +71,6 @@ class Tests{
             resultlist.push_back(round(AR_ratio_4*100) / 100);            
             resultlist.push_back(round(Upper_ratio*100) / 100);            
              
-            // inquire about the order of operations of the upper ratio/sqrt op
             High_PI = sqrt((PI_1 * Upper_ratio)/sqrt(PI_2*VF_1*AR_ratio_3*Upper_ratio));
             Low_PI = sqrt(PI_2 * AR_ratio_4/sqrt(PI_1*VF_1*AR_ratio_3*AR_ratio_4));
             High_VF = sqrt(VF_1 * Upper_ratio/sqrt(PI_2*PI_1*AR_ratio_3*Upper_ratio));
