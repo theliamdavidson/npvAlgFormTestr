@@ -28,6 +28,7 @@ class Read{
                     for(int j=0;j<content[i].size();j++){
                         temp.append(content[i][j] + " ");
                     }
+                    //cout << temp << endl;
                     return temp;
                 }
             }

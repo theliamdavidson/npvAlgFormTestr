@@ -21,11 +21,11 @@ class Write{
             newFilename = pat_name + "_results.csv";        
             fout.open(newFilename, ios::out | ios::app); 
             fout << newFilename << "\n";
-            for(int i = 0; i < 12; i++){
-                if((i%37) == 0){
-                    countr++;
+            // rethink
+            for(int i = 0; i < vessel_list.size(); i++){
+                for(int j = 0; j < result_var_list.size(); j++){
+                fout << vessel_list[i] << ',' << result_var_list[j] << ',' << to_string(pat_nums[j]) << "\n";
                 }
-                fout << vessel_list[countr] << ", " << result_var_list[i] << ", " <<pat_nums[i] << "\n";
             }
             cout << "creation of " << newFilename << " was successful" << endl;
         }
