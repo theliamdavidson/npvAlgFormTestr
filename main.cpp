@@ -43,11 +43,6 @@ int main(){
                 cin >> username; //replace hardcode with username after testing
                 r.File_O(username.append(".csv"));     
                 break;   
-            case('w'):
-                // write, will propably block funtionality 
-                // until patient is confirmed existing
-                cout << 'w'<< endl;
-                break;
             case('c'):
                 //CreateAPatient
                 cout << 'c'<< endl;

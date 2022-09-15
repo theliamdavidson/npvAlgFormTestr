@@ -153,13 +153,11 @@ class Tests{
             nvi_post_bvg1 = bvg_percent_total * nvi_post_carotid;
             nvi_post_bvg2 = nvi_post_carotid - nvi_post_bvg1;
 
-            float bvg_standin_1 = round(nvi_post_bvg1*100) / 100;
-            float bvg_standin_2 = round(nvi_post_bvg2*100) / 100;
-            float nvi_carotid_stand = round(nvi_post_carotid*100) / 100;
 
-           
+            resultlist.push_back(round(nvi_post_carotid*100)/100);
             resultlist.push_back(round(nvi_post_bvg1*100) / 100);            
-            resultlist.push_back(round(nvi_post_bvg2*100) / 100);            
+            resultlist.push_back(round(nvi_post_bvg2*100) / 100);  
+            
 
             nvi_non = deficit_total / 4;
             if(nvi_post_bvg2 > 50){
